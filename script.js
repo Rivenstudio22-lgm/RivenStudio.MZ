@@ -7,10 +7,9 @@
 // CONFIGURAÇÕES
 // =========================================================================
 
-const SUPABASE_URL = "https://supabase.co";
+const SUPABASE_URL = "https://exejgnfibccclgycnisx.supabase.co";
 
-const SUPABASE_ANON_KEY =
-    "sb_publishable_SzUF885jBmFYowH1WW-_Gw_UcukfAxf";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cRja44YGFVHvU9t-yec47g_9Dfqzt3G";
 
 
 // =========================================================================
