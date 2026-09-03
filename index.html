@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReivenStudio | Criação de Sites com IA</title>
+
+    <link rel="icon" type="image/png" href="Reivenstudio.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ========================================================= -->
+<!-- CABEÇALHO -->
+<!-- ========================================================= -->
+
+<header>
+
+    <div class="brand-area" onclick="voltarInicio()">
+
+        <!-- ESPAÇO PARA O TEU LOGOTIPO -->
+        <div class="logo-placeholder">
+            <!-- COLOCA O TEU LOGOTIPO AQUI -->
+            <!--
+            <img src="logo.png" alt="ReivenStudio">
+            -->
+            <span>REIVENSTUDIO</span>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+
+        <div id="user-display"></div>
+
+        <button
+            id="btnPatrocinadores"
+            class="nav-button"
+            onclick="abrirPatrocinadores()">
+            Patrocinadores
+        </button>
+
+        <button
+            id="btnPlanoGratuito"
+            class="nav-button free-button"
+            onclick="abrirPlanoGratuito()">
+            Plano Gratuito
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ========================================================= -->
+<!-- TELA DE LOGIN -->
+<!-- ========================================================= -->
+
+<section id="tela-login" class="screen active-screen">
+
+    <div class="login-page">
+
+        <!-- LOGOTIPO -->
+        <div class="login-logo-area">
+
+            <!-- ================================================= -->
+            <!-- ESPAÇO PARA COLOCAR O LOGOTIPO DA REIVENSTUDIO -->
+            <!-- ================================================= -->
+
+            <div class="login-logo-placeholder">
+                <!--
+                <img src="logo.png" alt="ReivenStudio">
+                -->
+
+                <span>REIVENSTUDIO</span>
+            </div>
+
+        </div>
+
+
+        <div class="login-content">
+
+            <span class="tech-badge">
+                ⚡ REIVENSTUDIO IA
+            </span>
+
+            <h1>
+                Crie o seu site<br>
+                com inteligência artificial.
+            </h1>
+
+            <p>
+                Desenvolva o seu projeto digital com a ReivenStudio.
+                Escolha um plano e deixe a nossa IA criar o seu site.
+            </p>
+
+
+            <div class="login-actions">
+
+                <button
+                    class="main-login-button"
+                    onclick="abrirModalLogin()">
+                    Entrar
+                </button>
+
+                <button
+                    class="create-account-button"
+                    onclick="abrirModalRegisto()">
+                    Criar Conta
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVISO INFERIOR -->
+
+        <div class="maintenance-message">
+
+            <span class="red-blinking-light"></span>
+
+            <span>
+                Este site encontra-se em reabilitações.
+                Volte dentro de 3 meses.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- RODAPÉ DA TELA DE LOGIN -->
+
+    <footer class="login-footer">
+
+        <div>
+            © 2026 ReivenStudio — Todos os direitos reservados.
+        </div>
+
+    </footer>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- HOME -->
+<!-- ========================================================= -->
+
+<section id="tela-home" class="screen">
+
+    <div class="home-container">
+
+        <div class="home-title">
+
+            <span class="tech-badge">
+                🚀 REIVENSTUDIO
+            </span>
+
+            <h1>
+                Escolha o projeto<br>
+                que deseja criar.
+            </h1>
+
+            <p>
+                A nossa inteligência artificial cria a estrutura inicial
+                do seu site com base nas informações que fornecer.
+            </p>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- PLANOS -->
+        <!-- ================================================= -->
+
+        <div class="plans-grid">
+
+
+            <!-- PÁGINA CANVA -->
+
+            <div class="plan-card">
+
+                <h2>Página Canva</h2>
+
+                <div class="plan-price">
+                    3.900 MT
+                </div>
+
+                <div class="domain-included">
+                    domínio incluído
+                </div>
+
+                <p>
+                    Uma página profissional para apresentar
+                    o seu negócio, produto ou projeto.
+                </p>
+
+                <button
+                    class="buy-button"
+                    onclick="abrirChatPlano('Página Canva')">
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- SITE PESSOAL -->
+
+            <div class="plan-card">
+
+                <h2>Site Pessoal</h2>
+
+                <div class="plan-price">
+                    3.900 MT
+                </div>
+
+                <div class="domain-included">
+                    domínio incluído
+                </div>
+
+                <p>
+                    Um site pessoal moderno para apresentar
+                    o seu trabalho, perfil ou marca pessoal.
+                </p>
+
+                <button
+                    class="buy-button"
+                    onclick="abrirChatPlano('Site Pessoal')">
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- MARCA / ROUPA -->
+
+            <div class="plan-card">
+
+                <h2>Marca / Marca de Roupa</h2>
+
+                <div class="plan-price">
+                    5.700 MT
+                </div>
+
+                <div class="domain-included">
+                    domínio incluído
+                </div>
+
+                <p>
+                    Site profissional para marcas,
+                    lojas e empresas de roupa.
+                </p>
+
+                <button
+                    class="buy-button"
+                    onclick="abrirChatPlano('Marca / Marca de Roupa')">
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- RESTAURANTE -->
+
+            <div class="plan-card">
+
+                <h2>Restaurante</h2>
+
+                <div class="plan-price">
+                    6.300 MT
+                </div>
+
+                <div class="domain-included">
+                    domínio incluído
+                </div>
+
+                <p>
+                    Apresente o seu restaurante, menu,
+                    contactos e localização online.
+                </p>
+
+                <button
+                    class="buy-button"
+                    onclick="abrirChatPlano('Restaurante')">
+                    Comprar
+                </button>
+
+            </div>
+
+
+
+            <!-- EMPRESA -->
+
+            <div class="plan-card">
+
+                <h2>Empresa</h2>
+
+                <div class="plan-price">
+                    8.100 MT
+                </div>
+
+                <div class="domain-included">
+                    domínio incluído
+                </div>
+
+                <p>
+                    Uma presença digital profissional
+                    para empresas e organizações.
+                </p>
+
+                <button
+                    class="buy-button"
+                    onclick="abrirChatPlano('Empresa')">
+                    Comprar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- RODAPÉ HOME -->
+    <!-- ================================================= -->
+
+    <footer class="main-footer">
+
+        <div class="footer-warning">
+
+            <span class="red-blinking-light"></span>
+
+            <span>
+                Este site encontra-se em reabilitações.
+                Volte dentro de 3 meses.
+            </span>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 ReivenStudio — Todos os direitos reservados.
+        </div>
+
+    </footer>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- MODAL LOGIN -->
+<!-- ========================================================= -->
+
+<div id="modal-login" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" onclick="fecharModais()">×</button>
+
+        <h2>Entrar</h2>
+
+        <p>
+            Entre na sua conta ReivenStudio.
+        </p>
+
+        <div class="modal-input-group">
+
+            <label>E-mail</label>
+
+            <input
+                type="email"
+                id="login-email"
+                placeholder="Digite o seu e-mail">
+
+        </div>
+
+
+        <div class="modal-input-group">
+
+            <label>Palavra-passe</label>
+
+            <input
+                type="password"
+                id="login-pass"
+                placeholder="Digite a sua palavra-passe">
+
+        </div>
+
+
+        <label class="remember-option">
+
+            <input
+                type="checkbox"
+                id="lembrar-mim">
+
+            <span>Lembrar-me</span>
+
+        </label>
+
+
+        <button
+            class="modal-main-button"
+            onclick="autenticarUtilizador()">
+
+            Entrar
+
+        </button>
+
+
+        <div class="modal-link">
+
+            Ainda não tem conta?
+
+            <button onclick="trocarParaRegisto()">
+                Criar Conta
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================= -->
+<!-- MODAL REGISTO -->
+<!-- ========================================================= -->
+
+<div id="modal-registo" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" onclick="fecharModais()">×</button>
+
+        <h2>Criar Conta</h2>
+
+        <p>
+            Crie a sua conta ReivenStudio.
+        </p>
+
+
+        <div class="modal-input-group">
+
+            <label>Nome completo</label>
+
+            <input
+                type="text"
+                id="registo-nome"
+                placeholder="Digite o seu nome completo">
+
+        </div>
+
+
+        <div class="modal-input-group">
+
+            <label>E-mail</label>
+
+            <input
+                type="email"
+                id="registo-email"
+                placeholder="Digite o seu e-mail">
+
+        </div>
+
+
+        <div class="modal-input-group">
+
+            <label>Palavra-passe</label>
+
+            <input
+                type="password"
+                id="registo-pass"
+                placeholder="Crie uma palavra-passe">
+
+        </div>
+
+
+        <button
+            class="modal-main-button"
+            onclick="registarNovoUtilizador()">
+
+            Criar Conta
+
+        </button>
+
+
+        <div class="modal-link">
+
+            Já tem conta?
+
+            <button onclick="trocarParaLogin()">
+                Entrar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================= -->
+<!-- MODAL PATROCINADORES -->
+<!-- ========================================================= -->
+
+<div id="modal-patrocinadores" class="modal">
+
+    <div class="modal-box sponsor-box">
+
+        <button class="close-modal" onclick="fecharModais()">×</button>
+
+        <h2>Patrocinadores</h2>
+
+        <p>
+            Este projeto é patrocinado por:
+        </p>
+
+
+        <!-- ================================================= -->
+        <!-- ESPAÇO PARA O LOGOTIPO DO JUPITER -->
+        <!-- ================================================= -->
+
+        <div class="sponsor-logo-placeholder">
+
+            <!-- COLOCA A IMAGEM DO JUPITER AQUI -->
+
+            <!--
+            <img
+                src="jupiter.jpg"
+                alt="Restaurante e Bar Jupiter">
+            -->
+
+            <span>
+                LOGOTIPO DO<br>
+                RESTAURANTE E BAR JUPITER
+            </span>
+
+        </div>
+
+
+        <h3>
+            Restaurante e Bar Jupiter
+        </h3>
+
+
+        <!-- ================================================= -->
+        <!-- COLOCA O URL REAL DO JUPITER AQUI -->
+        <!-- ================================================= -->
+
+        <a
+            href="https://COLOQUE-AQUI-O-SITE-DO-JUPITER.com"
+            target="_blank"
+            class="jupiter-button">
+
+            Aceder ao Site
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================= -->
+<!-- TELA CHAT IA -->
+<!-- ========================================================= -->
+
+<section id="tela-chat" class="screen">
+
+    <div class="chat-page">
+
+        <div class="chat-title-area">
+
+            <span class="tech-badge">
+                🤖 REIVEN IA
+            </span>
+
+            <h1>
+                Estúdio de Criação IA
+            </h1>
+
+            <p id="plano-selecionado-txt">
+                PLANO ATIVO
+            </p>
+
+        </div>
+
+
+        <div class="chat-container">
+
+            <div class="chat-header">
+                Reiven IA — Assistente de Criação de Sites
+            </div>
+
+
+            <div
+                id="chat-messages-box"
+                class="chat-messages">
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chat-user-input"
+                    class="chat-input"
+                    placeholder="Escreva aqui..."
+                    onkeypress="verificarTecla(event)">
+
+                <button
+                    class="btn-send"
+                    onclick="processarMensagemUsuario()">
+
+                    Enviar
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="back-home-button"
+            onclick="voltarParaHome()">
+
+            ← Voltar para Home
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
