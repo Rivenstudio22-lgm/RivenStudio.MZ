@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReivenStudio Admin | Painel Administrativo</title>
+
+    <meta name="description" content="Painel administrativo da ReivenStudio">
+    <meta name="theme-color" content="#05070d">
+
+    <!-- LOGOTIPO -->
+    <link rel="icon" type="image/png" href="../Reivenstudio.png">
+
+    <!-- CSS DO PAINEL -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- PROTEÇÃO / CARREGAMENTO                                   -->
+    <!-- ========================================================= -->
+
+    <div id="loading-screen">
+        <div class="loading-logo">
+            <span class="neon-dot"></span>
+            <span>REIVENSTUDIO</span>
+        </div>
+
+        <div class="loading-spinner"></div>
+
+        <p>A carregar painel administrativo...</p>
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- PAINEL PRINCIPAL                                          -->
+    <!-- ========================================================= -->
+
+    <div id="admin-panel" class="admin-panel">
+
+
+        <!-- ===================================================== -->
+        <!-- MENU LATERAL                                          -->
+        <!-- ===================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-top">
+
+                <!-- LOGO -->
+                <div class="admin-logo">
+
+                    <div class="admin-logo-mark">
+                        <span class="neon-dot"></span>
+                    </div>
+
+                    <div class="admin-logo-text">
+                        <strong>REIVENSTUDIO</strong>
+                        <small>ADMIN PANEL</small>
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO FECHAR MENU NO TELEMÓVEL -->
+                <button
+                    class="mobile-close-btn"
+                    id="mobile-close-btn"
+                    type="button"
+                    aria-label="Fechar menu">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- MENU -->
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">GESTÃO</p>
+
+                <button
+                    class="nav-item active"
+                    data-page="dashboard"
+                    type="button">
+
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="clientes"
+                    type="button">
+
+                    <span class="nav-icon">♙</span>
+                    <span>Clientes</span>
+
+                    <span class="nav-badge" id="clientes-count">
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="projetos"
+                    type="button">
+
+                    <span class="nav-icon">◈</span>
+                    <span>Projetos</span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="pagamentos"
+                    type="button">
+
+                    <span class="nav-icon">◇</span>
+                    <span>Pagamentos</span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="chats"
+                    type="button">
+
+                    <span class="nav-icon">◉</span>
+                    <span>Chats IA</span>
+
+                </button>
+
+
+                <p class="nav-section-title">NEGÓCIO</p>
+
+
+                <button
+                    class="nav-item"
+                    data-page="planos"
+                    type="button">
+
+                    <span class="nav-icon">▣</span>
+                    <span>Planos</span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="metas"
+                    type="button">
+
+                    <span class="nav-icon">◎</span>
+                    <span>Metas</span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="notificacoes"
+                    type="button">
+
+                    <span class="nav-icon">♢</span>
+                    <span>Notificações</span>
+
+                    <span
+                        class="notification-dot"
+                        id="notification-dot">
+                    </span>
+
+                </button>
+
+
+                <p class="nav-section-title">SISTEMA</p>
+
+
+                <button
+                    class="nav-item"
+                    data-page="configuracoes"
+                    type="button">
+
+                    <span class="nav-icon">⚙</span>
+                    <span>Configurações</span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- PARTE INFERIOR DO MENU -->
+            <div class="sidebar-bottom">
+
+                <div class="system-status">
+
+                    <span class="status-light"></span>
+
+                    <div>
+                        <strong>Sistema online</strong>
+                        <small>ReivenStudio Cloud</small>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="logout-button"
+                    id="logout-button"
+                    type="button">
+
+                    <span>↪</span>
+                    Terminar sessão
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ===================================================== -->
+        <!-- ÁREA PRINCIPAL                                        -->
+        <!-- ===================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- ================================================= -->
+            <!-- HEADER                                            -->
+            <!-- ================================================= -->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button
+                        class="mobile-menu-btn"
+                        id="mobile-menu-btn"
+                        type="button"
+                        aria-label="Abrir menu">
+
+                        ☰
+
+                    </button>
+
+
+                    <div class="page-heading">
+
+                        <span class="page-kicker">
+                            REIVENSTUDIO / ADMIN
+                        </span>
+
+                        <h1 id="page-title">
+                            Dashboard
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+
+                    <!-- PESQUISA -->
+                    <div class="global-search">
+
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="search"
+                            id="global-search"
+                            placeholder="Pesquisar cliente, projeto..."
+                            autocomplete="off">
+
+                        <span class="search-shortcut">
+                            /
+                        </span>
+
+                    </div>
+
+
+                    <!-- NOTIFICAÇÕES -->
+                    <button
+                        class="header-icon-button"
+                        id="header-notifications"
+                        type="button"
+                        aria-label="Notificações">
+
+                        ♢
+
+                        <span
+                            class="header-notification-count"
+                            id="header-notification-count">
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- ADMIN -->
+                    <div class="admin-profile">
+
+                        <div class="admin-avatar">
+                            A
+                        </div>
+
+                        <div class="admin-profile-info">
+
+                            <strong>Administrador</strong>
+
+                            <small>
+                                ReivenStudio
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================================================= -->
+            <!-- CONTEÚDO DAS PÁGINAS                              -->
+            <!-- ================================================= -->
+
+            <div class="content-wrapper">
+
+
+                <!-- ================================================= -->
+                <!-- DASHBOARD                                         -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-dashboard"
+                    class="admin-page active-page">
+
+
+                    <!-- CABEÇALHO -->
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                VISÃO GERAL
+                            </span>
+
+                            <h2>
+                                Centro de controlo
+                            </h2>
+
+                            <p>
+                                Acompanhe os resultados e a atividade
+                                do ReivenStudio.
+                            </p>
+
+                        </div>
+
+
+                        <div class="dashboard-actions">
+
+                            <button
+                                class="secondary-button"
+                                id="refresh-dashboard"
+                                type="button">
+
+                                ↻ Atualizar
+
+                            </button>
+
+
+                            <button
+                                class="primary-button"
+                                data-page="metas"
+                                type="button">
+
+                                ◎ Ver metas
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- CARTÕES FINANCEIROS                              -->
+                    <!-- ================================================= -->
+
+                    <div class="stats-grid">
+
+
+                        <!-- HOJE -->
+                        <article class="stat-card">
+
+                            <div class="stat-card-top">
+
+                                <div class="stat-icon revenue-icon">
+                                    MT
+                                </div>
+
+                                <span class="stat-period">
+                                    HOJE
+                                </span>
+
+                            </div>
+
+                            <div class="stat-value"
+                                 id="revenue-today">
+
+                                0 MT
+
+                            </div>
+
+                            <div class="stat-footer">
+
+                                <span class="stat-positive"
+                                      id="revenue-today-change">
+
+                                    +0%
+
+                                </span>
+
+                                <span>
+                                    vs. ontem
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- SEMANA -->
+                        <article class="stat-card">
+
+                            <div class="stat-card-top">
+
+                                <div class="stat-icon revenue-icon">
+                                    MT
+                                </div>
+
+                                <span class="stat-period">
+                                    SEMANA
+                                </span>
+
+                            </div>
+
+                            <div class="stat-value"
+                                 id="revenue-week">
+
+                                0 MT
+
+                            </div>
+
+                            <div class="stat-footer">
+
+                                <span class="stat-positive"
+                                      id="revenue-week-change">
+
+                                    +0%
+
+                                </span>
+
+                                <span>
+                                    vs. semana anterior
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- MÊS -->
+                        <article class="stat-card">
+
+                            <div class="stat-card-top">
+
+                                <div class="stat-icon revenue-icon">
+                                    MT
+                                </div>
+
+                                <span class="stat-period">
+                                    MÊS
+                                </span>
+
+                            </div>
+
+                            <div class="stat-value"
+                                 id="revenue-month">
+
+                                0 MT
+
+                            </div>
+
+                            <div class="stat-footer">
+
+                                <span class="stat-positive"
+                                      id="revenue-month-change">
+
+                                    +0%
+
+                                </span>
+
+                                <span>
+                                    vs. mês anterior
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- ANO -->
+                        <article class="stat-card">
+
+                            <div class="stat-card-top">
+
+                                <div class="stat-icon revenue-icon">
+                                    MT
+                                </div>
+
+                                <span class="stat-period">
+                                    ANO
+                                </span>
+
+                            </div>
+
+                            <div class="stat-value"
+                                 id="revenue-year">
+
+                                0 MT
+
+                            </div>
+
+                            <div class="stat-footer">
+
+                                <span class="stat-positive"
+                                      id="revenue-year-change">
+
+                                    +0%
+
+                                </span>
+
+                                <span>
+                                    vs. ano anterior
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- CARTÕES DE CLIENTES                              -->
+                    <!-- ================================================= -->
+
+                    <div class="stats-grid client-stats">
+
+
+                        <!-- CLIENTES HOJE -->
+                        <article class="stat-card compact-stat">
+
+                            <div class="compact-stat-icon">
+                                ♙
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Clientes hoje
+                                </span>
+
+                                <strong id="clients-today">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CLIENTES SEMANA -->
+                        <article class="stat-card compact-stat">
+
+                            <div class="compact-stat-icon">
+                                ♙
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Clientes esta semana
+                                </span>
+
+                                <strong id="clients-week">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CLIENTES MÊS -->
+                        <article class="stat-card compact-stat">
+
+                            <div class="compact-stat-icon">
+                                ♙
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Clientes este mês
+                                </span>
+
+                                <strong id="clients-month">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CLIENTES ANO -->
+                        <article class="stat-card compact-stat">
+
+                            <div class="compact-stat-icon">
+                                ♙
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Clientes este ano
+                                </span>
+
+                                <strong id="clients-year">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- GRÁFICO + ATIVIDADE                              -->
+                    <!-- ================================================= -->
+
+                    <div class="dashboard-two-columns">
+
+
+                        <!-- GRÁFICO -->
+                        <article class="dashboard-card chart-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        DESEMPENHO
+                                    </span>
+
+                                    <h3>
+                                        Ganhos
+                                    </h3>
+
+                                </div>
+
+
+                                <select
+                                    id="revenue-period"
+                                    class="select-control">
+
+                                    <option value="7">
+                                        Últimos 7 dias
+                                    </option>
+
+                                    <option value="30">
+                                        Últimos 30 dias
+                                    </option>
+
+                                    <option value="12">
+                                        Últimos 12 meses
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div
+                                class="chart-container"
+                                id="revenue-chart">
+
+                                <div class="chart-empty">
+
+                                    <span>▥</span>
+
+                                    <p>
+                                        Os dados do gráfico aparecerão
+                                        quando os pagamentos forem
+                                        ligados ao Supabase.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- ATIVIDADE RECENTE -->
+                        <article class="dashboard-card activity-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        TEMPO REAL
+                                    </span>
+
+                                    <h3>
+                                        Atividade recente
+                                    </h3>
+
+                                </div>
+
+                                <button
+                                    class="text-button"
+                                    data-page="notificacoes"
+                                    type="button">
+
+                                    Ver tudo
+
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="activity-list"
+                                id="recent-activity">
+
+                                <div class="empty-state">
+
+                                    <div class="empty-icon">
+                                        ◌
+                                    </div>
+
+                                    <strong>
+                                        Sem atividade
+                                    </strong>
+
+                                    <p>
+                                        As atividades dos clientes
+                                        aparecerão aqui.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- CLIENTES RECENTES + PAGAMENTOS                  -->
+                    <!-- ================================================= -->
+
+                    <div class="dashboard-two-columns">
+
+
+                        <!-- CLIENTES RECENTES -->
+                        <article class="dashboard-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        CLIENTES
+                                    </span>
+
+                                    <h3>
+                                        Clientes recentes
+                                    </h3>
+
+                                </div>
+
+                                <button
+                                    class="text-button"
+                                    data-page="clientes"
+                                    type="button">
+
+                                    Ver todos
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="table-wrapper">
+
+                                <table class="admin-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Cliente
+                                            </th>
+
+                                            <th>
+                                                Plano
+                                            </th>
+
+                                            <th>
+                                                Data
+                                            </th>
+
+                                            <th>
+                                                Estado
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="recent-clients-table">
+
+                                        <tr>
+
+                                            <td colspan="4">
+
+                                                <div class="table-empty">
+                                                    Nenhum cliente registado.
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PAGAMENTOS RECENTES -->
+                        <article class="dashboard-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        FINANCEIRO
+                                    </span>
+
+                                    <h3>
+                                        Pagamentos recentes
+                                    </h3>
+
+                                </div>
+
+                                <button
+                                    class="text-button"
+                                    data-page="pagamentos"
+                                    type="button">
+
+                                    Ver todos
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="table-wrapper">
+
+                                <table class="admin-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Cliente
+                                            </th>
+
+                                            <th>
+                                                Plano
+                                            </th>
+
+                                            <th>
+                                                Valor
+                                            </th>
+
+                                            <th>
+                                                Estado
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="recent-payments-table">
+
+                                        <tr>
+
+                                            <td colspan="4">
+
+                                                <div class="table-empty">
+                                                    Nenhum pagamento registado.
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- CLIENTES                                         -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-clientes"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                GESTÃO DE CLIENTES
+                            </span>
+
+                            <h2>
+                                Clientes
+                            </h2>
+
+                            <p>
+                                Consulte as contas e os projetos dos seus clientes.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="secondary-button"
+                            id="refresh-clients"
+                            type="button">
+
+                            ↻ Atualizar
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- FILTROS -->
+                    <div class="filters-bar">
+
+                        <div class="filter-search">
+
+                            <span>⌕</span>
+
+                            <input
+                                type="search"
+                                id="client-search"
+                                placeholder="Pesquisar por nome ou e-mail...">
+
+                        </div>
+
+
+                        <select
+                            id="client-plan-filter"
+                            class="select-control">
+
+                            <option value="all">
+                                Todos os planos
+                            </option>
+
+                            <option value="Página Canva">
+                                Página Canva
+                            </option>
+
+                            <option value="Site Pessoal">
+                                Site Pessoal
+                            </option>
+
+                            <option value="Marca / Marca de Roupa">
+                                Marca / Marca de Roupa
+                            </option>
+
+                            <option value="Restaurante">
+                                Restaurante
+                            </option>
+
+                            <option value="Empresa">
+                                Empresa
+                            </option>
+
+                        </select>
+
+
+                        <select
+                            id="client-status-filter"
+                            class="select-control">
+
+                            <option value="all">
+                                Todos os estados
+                            </option>
+
+                            <option value="active">
+                                Ativos
+                            </option>
+
+                            <option value="inactive">
+                                Inativos
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TABELA -->
+                    <article class="dashboard-card">
+
+                        <div class="table-wrapper">
+
+                            <table class="admin-table clients-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Cliente
+                                        </th>
+
+                                        <th>
+                                            E-mail
+                                        </th>
+
+                                        <th>
+                                            Plano
+                                        </th>
+
+                                        <th>
+                                            Pagamento
+                                        </th>
+
+                                        <th>
+                                            Site
+                                        </th>
+
+                                        <th>
+                                            Registado
+                                        </th>
+
+                                        <th>
+                                            Ação
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="clients-table-body">
+
+                                    <tr>
+
+                                        <td colspan="7">
+
+                                            <div class="table-empty">
+                                                Nenhum cliente encontrado.
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- PROJETOS                                         -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-projetos"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                DESENVOLVIMENTO
+                            </span>
+
+                            <h2>
+                                Projetos
+                            </h2>
+
+                            <p>
+                                Acompanhe os sites dos clientes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-filters">
+
+                        <button
+                            class="filter-chip active"
+                            data-project-filter="all"
+                            type="button">
+
+                            Todos
+
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-project-filter="creating"
+                            type="button">
+
+                            Em criação
+
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-project-filter="development"
+                            type="button">
+
+                            Em desenvolvimento
+
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-project-filter="available"
+                            type="button">
+
+                            Disponíveis
+
+                        </button>
+
+                        <button
+                            class="filter-chip"
+                            data-project-filter="suspended"
+                            type="button">
+
+                            Suspensos
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="projects-grid"
+                        id="projects-grid">
+
+                        <div class="empty-state large-empty">
+
+                            <div class="empty-icon">
+                                ◈
+                            </div>
+
+                            <strong>
+                                Nenhum projeto
+                            </strong>
+
+                            <p>
+                                Os projetos criados pelos clientes
+                                aparecerão aqui.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- PAGAMENTOS                                       -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-pagamentos"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                FINANCEIRO
+                            </span>
+
+                            <h2>
+                                Pagamentos
+                            </h2>
+
+                            <p>
+                                Controle todas as transações do ReivenStudio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-summary-grid">
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Pagamentos hoje
+                            </span>
+
+                            <strong id="payments-today">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Pendentes
+                            </span>
+
+                            <strong id="payments-pending">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Total recebido
+                            </span>
+
+                            <strong id="payments-total">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <article class="dashboard-card">
+
+                        <div class="table-wrapper">
+
+                            <table class="admin-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Cliente
+                                        </th>
+
+                                        <th>
+                                            Plano
+                                        </th>
+
+                                        <th>
+                                            Valor
+                                        </th>
+
+                                        <th>
+                                            Método
+                                        </th>
+
+                                        <th>
+                                            Referência
+                                        </th>
+
+                                        <th>
+                                            Data
+                                        </th>
+
+                                        <th>
+                                            Estado
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="payments-table-body">
+
+                                    <tr>
+
+                                        <td colspan="7">
+
+                                            <div class="table-empty">
+                                                Nenhum pagamento registado.
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- CHATS IA                                         -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-chats"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                INTELIGÊNCIA ARTIFICIAL
+                            </span>
+
+                            <h2>
+                                Chats da Reiven IA
+                            </h2>
+
+                            <p>
+                                Consulte as conversas entre clientes e a IA.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chat-admin-layout">
+
+
+                        <!-- LISTA DE CLIENTES -->
+                        <article class="dashboard-card chat-users-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        CLIENTES
+                                    </span>
+
+                                    <h3>
+                                        Conversas
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="chat-users-list"
+                                id="chat-users-list">
+
+                                <div class="empty-state">
+
+                                    <div class="empty-icon">
+                                        ◉
+                                    </div>
+
+                                    <strong>
+                                        Nenhuma conversa
+                                    </strong>
+
+                                    <p>
+                                        As conversas aparecerão aqui.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- CHAT -->
+                        <article class="dashboard-card admin-chat-view">
+
+                            <div
+                                class="admin-chat-header"
+                                id="admin-chat-header">
+
+                                <div>
+
+                                    <strong>
+                                        Selecione um cliente
+                                    </strong>
+
+                                    <small>
+                                        Histórico da conversa
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="admin-chat-messages"
+                                id="admin-chat-messages">
+
+                                <div class="empty-state">
+
+                                    <div class="empty-icon">
+                                        🤖
+                                    </div>
+
+                                    <strong>
+                                        Nenhuma conversa selecionada
+                                    </strong>
+
+                                    <p>
+                                        Selecione um cliente para
+                                        visualizar o histórico.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- PLANOS                                           -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-planos"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                PRODUTOS
+                            </span>
+
+                            <h2>
+                                Planos
+                            </h2>
+
+                            <p>
+                                Consulte os planos e preços do ReivenStudio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="plans-admin-grid"
+                        id="plans-admin-grid">
+
+
+                        <!-- PÁGINA CANVA -->
+                        <article class="plan-admin-card">
+
+                            <div class="plan-admin-icon">
+                                C
+                            </div>
+
+                            <span class="plan-admin-label">
+                                PLANO
+                            </span>
+
+                            <h3>
+                                Página Canva
+                            </h3>
+
+                            <strong class="plan-price">
+                                3.900 MT
+                            </strong>
+
+                            <p>
+                                Página profissional com domínio incluído.
+                            </p>
+
+                            <span class="plan-status active">
+                                Ativo
+                            </span>
+
+                        </article>
+
+
+                        <!-- SITE PESSOAL -->
+                        <article class="plan-admin-card">
+
+                            <div class="plan-admin-icon">
+                                P
+                            </div>
+
+                            <span class="plan-admin-label">
+                                PLANO
+                            </span>
+
+                            <h3>
+                                Site Pessoal
+                            </h3>
+
+                            <strong class="plan-price">
+                                3.900 MT
+                            </strong>
+
+                            <p>
+                                Site pessoal profissional com domínio incluído.
+                            </p>
+
+                            <span class="plan-status active">
+                                Ativo
+                            </span>
+
+                        </article>
+
+
+                        <!-- MARCA -->
+                        <article class="plan-admin-card">
+
+                            <div class="plan-admin-icon">
+                                M
+                            </div>
+
+                            <span class="plan-admin-label">
+                                PLANO
+                            </span>
+
+                            <h3>
+                                Marca / Marca de Roupa
+                            </h3>
+
+                            <strong class="plan-price">
+                                5.700 MT
+                            </strong>
+
+                            <p>
+                                Presença digital para marcas e negócios.
+                            </p>
+
+                            <span class="plan-status active">
+                                Ativo
+                            </span>
+
+                        </article>
+
+
+                        <!-- RESTAURANTE -->
+                        <article class="plan-admin-card">
+
+                            <div class="plan-admin-icon">
+                                R
+                            </div>
+
+                            <span class="plan-admin-label">
+                                PLANO
+                            </span>
+
+                            <h3>
+                                Restaurante
+                            </h3>
+
+                            <strong class="plan-price">
+                                6.300 MT
+                            </strong>
+
+                            <p>
+                                Website profissional para restaurantes.
+                            </p>
+
+                            <span class="plan-status active">
+                                Ativo
+                            </span>
+
+                        </article>
+
+
+                        <!-- EMPRESA -->
+                        <article class="plan-admin-card featured">
+
+                            <div class="plan-admin-icon">
+                                E
+                            </div>
+
+                            <span class="plan-admin-label">
+                                PLANO
+                            </span>
+
+                            <h3>
+                                Empresa
+                            </h3>
+
+                            <strong class="plan-price">
+                                8.100 MT
+                            </strong>
+
+                            <p>
+                                Solução completa para empresas.
+                            </p>
+
+                            <span class="plan-status active">
+                                Ativo
+                            </span>
+
+                        </article>
+
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- METAS                                             -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-metas"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                OBJETIVOS
+                            </span>
+
+                            <h2>
+                                Metas
+                            </h2>
+
+                            <p>
+                                Acompanhe os objetivos financeiros do ReivenStudio.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button"
+                            id="add-goal-button"
+                            type="button">
+
+                            + Nova meta
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- RESUMO DAS METAS -->
+                    <div class="goal-summary-grid">
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Metas ativas
+                            </span>
+
+                            <strong id="active-goals-count">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Valor total
+                            </span>
+
+                            <strong id="goals-total-value">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+
+                        <div class="mini-stat">
+
+                            <span>
+                                Já acumulado
+                            </span>
+
+                            <strong id="goals-saved-value">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+
+                        <div class="mini-stat highlight">
+
+                            <span>
+                                Falta acumular
+                            </span>
+
+                            <strong id="goals-remaining-value">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LISTA DE METAS -->
+                    <div
+                        class="goals-grid"
+                        id="goals-grid">
+
+                        <div class="empty-state large-empty">
+
+                            <div class="empty-icon">
+                                ◎
+                            </div>
+
+                            <strong>
+                                Ainda não existem metas
+                            </strong>
+
+                            <p>
+                                Crie uma meta para começar a acompanhar
+                                os seus objetivos.
+                            </p>
+
+                            <button
+                                class="primary-button"
+                                id="empty-add-goal"
+                                type="button">
+
+                                + Criar primeira meta
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- NOTIFICAÇÕES                                     -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-notificacoes"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                CENTRAL
+                            </span>
+
+                            <h2>
+                                Notificações
+                            </h2>
+
+                            <p>
+                                Acompanhe os acontecimentos importantes.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="secondary-button"
+                            id="mark-notifications-read"
+                            type="button">
+
+                            ✓ Marcar como lidas
+
+                        </button>
+
+                    </div>
+
+
+                    <article class="dashboard-card">
+
+                        <div
+                            class="notifications-list"
+                            id="notifications-list">
+
+                            <div class="empty-state large-empty">
+
+                                <div class="empty-icon">
+                                    ♢
+                                </div>
+
+                                <strong>
+                                    Tudo tranquilo
+                                </strong>
+
+                                <p>
+                                    Não existem novas notificações.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+                <!-- ================================================= -->
+                <!-- CONFIGURAÇÕES                                    -->
+                <!-- ================================================= -->
+
+                <section
+                    id="page-configuracoes"
+                    class="admin-page">
+
+
+                    <div class="page-intro">
+
+                        <div>
+
+                            <span class="section-label">
+                                SISTEMA
+                            </span>
+
+                            <h2>
+                                Configurações
+                            </h2>
+
+                            <p>
+                                Configurações do painel administrativo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-grid">
+
+
+                        <!-- CONTA -->
+                        <article class="dashboard-card settings-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        ADMINISTRADOR
+                                    </span>
+
+                                    <h3>
+                                        Conta
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="settings-row">
+
+                                <div>
+
+                                    <strong>
+                                        Nome
+                                    </strong>
+
+                                    <small>
+                                        Administrador
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="settings-row">
+
+                                <div>
+
+                                    <strong>
+                                        Plataforma
+                                    </strong>
+
+                                    <small>
+                                        ReivenStudio
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- BASE DE DADOS -->
+                        <article class="dashboard-card settings-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="section-label">
+                                        INFRAESTRUTURA
+                                    </span>
+
+                                    <h3>
+                                        Base de dados
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="connection-status">
+
+                                <span
+                                    class="status-light"
+                                    id="database-status-light">
+                                </span>
+
+                                <div>
+
+                                    <strong id="database-status">
+                                        A aguardar ligação
+                                    </strong>
+
+                                    <small>
+                                        Supabase
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <p class="settings-note">
+                                A ligação ao Supabase será configurada
+                                no ficheiro JavaScript do painel.
+                            </p>
+
+                        </article>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- FOOTER                                            -->
+            <!-- ================================================= -->
+
+            <footer class="admin-footer">
+
+                <div>
+
+                    <strong>
+                        REIVENSTUDIO
+                    </strong>
+
+                    <span>
+                        Painel Administrativo
+                    </span>
+
+                </div>
+
+                <p>
+                    © 2026 ReivenStudio. Todos os direitos reservados.
+                </p>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- OVERLAY MOBILE                                           -->
+    <!-- ========================================================= -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebar-overlay">
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL: DETALHES DO CLIENTE                               -->
+    <!-- ========================================================= -->
+
+    <div
+        class="modal-overlay"
+        id="client-modal"
+        aria-hidden="true">
+
+        <div class="modal-window client-modal-window">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PERFIL DO CLIENTE
+                    </span>
+
+                    <h2 id="modal-client-name">
+                        Cliente
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="modal-close"
+                    data-close-modal="client-modal"
+                    type="button">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <div class="client-profile">
+
+
+                <!-- INFORMAÇÕES -->
+                <div class="client-profile-header">
+
+                    <div
+                        class="large-client-avatar"
+                        id="modal-client-avatar">
+
+                        C
+
+                    </div>
+
+                    <div>
+
+                        <h3 id="modal-client-name-header">
+                            Cliente
+                        </h3>
+
+                        <p id="modal-client-email">
+                            cliente@email.com
+                        </p>
+
+                        <span
+                            class="status-pill active"
+                            id="modal-client-status">
+
+                            Ativo
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DADOS DA CONTA -->
+                <div class="detail-section">
+
+                    <div class="detail-section-title">
+                        DADOS DA CONTA
+                    </div>
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+
+                            <span>
+                                ID da conta
+                            </span>
+
+                            <strong id="modal-client-id">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                Data de criação
+                            </span>
+
+                            <strong id="modal-client-created">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                Último acesso
+                            </span>
+
+                            <strong id="modal-client-last-login">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                E-mail
+                            </span>
+
+                            <strong id="modal-client-email-detail">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PLANO -->
+                <div class="detail-section">
+
+                    <div class="detail-section-title">
+                        PLANO E PAGAMENTO
+                    </div>
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+
+                            <span>
+                                Plano
+                            </span>
+
+                            <strong id="modal-client-plan">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                Valor pago
+                            </span>
+
+                            <strong id="modal-client-paid">
+                                0 MT
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                Estado
+                            </span>
+
+                            <strong id="modal-client-payment-status">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-item">
+
+                            <span>
+                                Data do pagamento
+                            </span>
+
+                            <strong id="modal-client-payment-date">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SITE -->
+                <div class="detail-section">
+
+                    <div class="detail-section-title">
+                        PROJETO / SITE
+                    </div>
+
+
+                    <div class="site-project-box">
+
+                        <div class="site-status-indicator">
+
+                            <span
+                                id="modal-site-status-dot"
+                                class="status-light">
+                            </span>
+
+                            <div>
+
+                                <strong id="modal-site-status">
+                                    Não disponível
+                                </strong>
+
+                                <small>
+                                    Estado do projeto
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="site-link-box"
+                            id="modal-site-link-box">
+
+                            <span id="modal-site-link">
+                                Nenhum site disponível
+                            </span>
+
+                            <button
+                                id="modal-open-site"
+                                class="primary-button small-button"
+                                type="button"
+                                disabled>
+
+                                Abrir site ↗
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHAT -->
+                <div class="detail-section">
+
+                    <div class="detail-section-title">
+                        HISTÓRICO DA REIVEN IA
+                    </div>
+
+
+                    <div
+                        class="client-modal-chat"
+                        id="modal-client-chat">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                🤖
+                            </div>
+
+                            <strong>
+                                Sem mensagens
+                            </strong>
+
+                            <p>
+                                O histórico da conversa aparecerá aqui.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL: METAS                                             -->
+    <!-- ========================================================= -->
+
+    <div
+        class="modal-overlay"
+        id="goal-modal"
+        aria-hidden="true">
+
+        <div class="modal-window goal-modal-window">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        OBJETIVO FINANCEIRO
+                    </span>
+
+                    <h2 id="goal-modal-title">
+                        Nova meta
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="modal-close"
+                    data-close-modal="goal-modal"
+                    type="button">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="goal-form">
+
+                <input
+                    type="hidden"
+                    id="goal-id">
+
+
+                <div class="form-group">
+
+                    <label for="goal-name">
+                        Nome da meta
+                    </label>
+
+                    <input
+                        type="text"
+                        id="goal-name"
+                        placeholder="Ex.: Comprar computador"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="goal-description">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        id="goal-description"
+                        placeholder="Descreva o objetivo..."
+                        rows="3">
+                    </textarea>
+
+                </div>
+
+
+                <div class="form-two-columns">
+
+                    <div class="form-group">
+
+                        <label for="goal-target">
+                            Valor objetivo
+                        </label>
+
+                        <input
+                            type="number"
+                            id="goal-target"
+                            min="0"
+                            step="0.01"
+                            placeholder="45000"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="goal-saved">
+                            Valor já acumulado
+                        </label>
+
+                        <input
+                            type="number"
+                            id="goal-saved"
+                            min="0"
+                            step="0.01"
+                            placeholder="20000"
+                            value="0">
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="goal-image">
+                        Imagem da meta
+                    </label>
+
+                    <input
+                        type="url"
+                        id="goal-image"
+                        placeholder="https://...">
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close-modal="goal-modal">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+
+                        Guardar meta
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL: PRODUTO DA META                                   -->
+    <!-- ========================================================= -->
+
+    <div
+        class="modal-overlay"
+        id="product-modal"
+        aria-hidden="true">
+
+        <div class="modal-window">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-label">
+                        META
+                    </span>
+
+                    <h2>
+                        Adicionar produto
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="modal-close"
+                    data-close-modal="product-modal"
+                    type="button">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="product-form">
+
+                <input
+                    type="hidden"
+                    id="product-goal-id">
+
+
+                <div class="form-group">
+
+                    <label for="product-name">
+                        Nome do produto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="product-name"
+                        placeholder="Ex.: Computador portátil"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="product-link">
+                        Link do AliExpress
+                    </label>
+
+                    <input
+                        type="url"
+                        id="product-link"
+                        placeholder="https://...">
+
+                </div>
+
+
+                <div class="form-two-columns">
+
+                    <div class="form-group">
+
+                        <label for="product-price">
+                            Preço
+                        </label>
+
+                        <input
+                            type="number"
+                            id="product-price"
+                            min="0"
+                            step="0.01"
+                            placeholder="45000"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="product-saved">
+                            Já acumulado
+                        </label>
+
+                        <input
+                            type="number"
+                            id="product-saved"
+                            min="0"
+                            step="0.01"
+                            placeholder="0"
+                            value="0">
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="product-image">
+                        Imagem do produto
+                    </label>
+
+                    <input
+                        type="url"
+                        id="product-image"
+                        placeholder="https://...">
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close-modal="product-modal">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button">
+
+                        Adicionar produto
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- TOAST / MENSAGENS                                        -->
+    <!-- ========================================================= -->
+
+    <div
+        class="toast-container"
+        id="toast-container">
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT                                               -->
+    <!-- ========================================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
